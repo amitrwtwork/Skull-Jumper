@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Skull Eater - Optimized monochrome arcade experience.">
+    <meta name="theme-color" content="#000000">
+    <title>Skull Eater | Arcade v4.6</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+      :root { background: #000; }
+      body {
+        font-family: 'Space+Mono', monospace;
+        background-color: #000;
+        margin: 0;
+        overflow: hidden;
+        touch-action: none;
+      }
+      canvas {
+        image-rendering: pixelated;
+        image-rendering: crisp-edges;
+      }
+      .glitch-text {
+        text-shadow: 2px 0 #fff, -2px 0 #888;
+        animation: glitch-anim 4s infinite linear alternate-reverse;
+      }
+      @keyframes glitch-anim {
+        0% { text-shadow: 2px 0 #fff, -2px 0 #888; transform: translate(0); }
+        1% { transform: translate(-1px, 1px); }
+        2% { transform: translate(0); }
+        50% { text-shadow: -1px 0 #ccc, 1px 0 #444; }
+        100% { text-shadow: 2px 0 #fff, -2px 0 #888; }
+      }
+      .fade-in { animation: fadeIn 0.4s ease-out; }
+      @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+      
+      /* Accessibility Focus states */
+      button:focus-visible, input:focus-visible {
+        outline: 2px solid #fff;
+        outline-offset: 4px;
+      }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "@google/genai": "https://esm.sh/@google/genai@^1.38.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-black text-white antialiased">
+    <main id="root" role="application" aria-label="Skull Eater Arcade Environment"></main>
+    <noscript>This game requires JavaScript to execute the neural-consumption simulation.</noscript>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
